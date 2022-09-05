@@ -1,0 +1,21 @@
+def solution(n, times):
+    min_ = min(times)
+    max_ = max(times) * n
+
+    def pcount(x):
+        a = 0
+        for time in times:
+            a += x // time
+
+        return a
+
+    answer = 0
+    while min_ <= max_:
+        mid = (min_ + max_) // 2
+        if pcount(mid) >= n:
+            answer = mid
+            max_ = mid - 1
+        else:
+            min_ = mid + 1
+
+    return answer
