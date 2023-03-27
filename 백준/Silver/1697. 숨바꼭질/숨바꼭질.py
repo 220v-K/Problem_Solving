@@ -16,15 +16,9 @@ def sol():
             print(visit[a])
             return
 
-        if 0 <= a*2 <= 100000 and visit.get(a*2, -1) == -1:
-            deq.append(a*2)
-            visit[a*2] = visit[a]+1
-        if 0 <= a+1 <= 100000 and visit.get(a+1, -1) == -1:
-            deq.append(a+1)
-            visit[a+1] = visit[a]+1
-        if 0 <= a-1 <= 100000 and visit.get(a-1, -1) == -1:
-            deq.append(a-1)
-            visit[a-1] = visit[a]+1
-
+        for i in [a*2, a+1, a-1]:
+            if 0 <= i <= 100000 and visit.get(i, -1) == -1:
+                deq.append(i)
+                visit[i] = visit[a]+1
 
 sol()
