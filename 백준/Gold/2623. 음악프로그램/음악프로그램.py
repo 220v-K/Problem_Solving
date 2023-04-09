@@ -26,13 +26,10 @@ while queue:
         graph_in_cnt[g] -= 1
         if graph_in_cnt[g] == 0:
             queue.append(g)
-        # 만약 graph_in_cnt < 0 이 되었다면, 사이클이 존재한다는 뜻이므로, exit.
-        elif graph_in_cnt[g] < 0:
-            print(0)
-            exit()
 
     result.append(a)
 
+# result에 N개의 원소가 없다면, 온전하게 종료되지 못한 것. exit.
 if len(result) == N:
     for i in result:
         print(i)
